@@ -20,24 +20,15 @@ Por ejemplo si accedemos a la propiedad innerHTML del nodo elemento 'body' luego
 /* Vea luego de 3 segundo como la página web (la ventana que se encuentra abaja) se modifica su contenido (no he cambiado la página HTML original de la derecha, tener en cuenta que la propiedad innerHTML modifica el DOM en memoria y no modifica el archivo HTML físicamente)
 
 Veamos otro ejemplo de como crear una tabla HTML en forma dinámica: */
-/* let tabla1 = '<table id="tabla1>';
+let tabla1 = '<table id="tabla1>';
 for(let fila=1;fila<10;fila++){
     tabla1 += '<tr>'
     for(let columna=1;columna<10;columna++){
         tabla1 +=`<td>(${fila}-${columna})</td>`
     }
-    
     tabla1 += '</tr>'
-    
 }
 tabla1 += '</table>'
 document.querySelector("#divtabla1").innerHTML=tabla1
 document.querySelector("#tabla1").style.border='1px solid #f00'
-document.querySelector("#tabla1").style.borderCollapse='collapse' */
-
-/* Podemos generar un string que contenga etiquetas HTML que luego son creados los nodos en el momento que le asignamos a la propiedad innerHTML. Veamos otro ejemplo de actualizar un div con la hora actual de la computadora: */
-setInterval(() => {
-    const fechaActual =new Date()
-    document.querySelector("#hora").innerHTML = `${fechaActual.getHours()}:${fechaActual.getMinutes()}:${fechaActual.getSeconds()}`
-}, 1000)
-
+document.querySelector("#tabla1").style.borderCollapse='collapse'
