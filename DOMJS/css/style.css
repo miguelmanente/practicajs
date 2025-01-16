@@ -1,0 +1,21 @@
+#cabecera{
+    text-align: center
+}
+
+#contenidoPrincipal{
+    display: flex;
+    align-items: center;
+}
+
+.imagen{
+    width: 49%;
+    border-radius: 20px;
+    float: left;
+    margin-right: 50px;
+}
+
+#descripcion{
+    float: left;
+    width: 49%;
+}
+
