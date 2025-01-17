@@ -23,7 +23,22 @@
 //const tamanioFuente = prompt("Tamaño de la fuente (en pixeles): ");
 //document.getElementById("cabecera").style.fontSize = tamanioFuente;
 
+//Toma todas las etiquetas que tengan clase cabecera y mediante la variable color van cambiando con random
+const listaCabeceras =document.getElementsByClassName("cabecera");
+let color ="hsl(" + Math.floor(Math.random() * 361) + ",100%," +" 50%)";
+for (let i = 0; i <listaCabeceras.length; i++){
+  listaCabeceras[i].style.color = color;
+}
 
+
+// Toma las etiquetas p y les aplica color de la fuente y el color de fondo como también el tamaño
+const listaParrafos = document.getElementsByTagName("p")
+
+for (let i = 0; i <listaParrafos.length; i++) {
+  listaParrafos[i].style.color ="white";
+  listaParrafos[i].style.backgroundColor = "black";
+  listaParrafos[i].style.fontSize ="1em"
+}
 
 
 
