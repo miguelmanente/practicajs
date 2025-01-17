@@ -1,21 +1,19 @@
-#cabecera{
-    text-align: center 
-}
 
 #contenidoPrincipal{
-    display: block;
+    display: flex;
     align-items: center;
 }
 
-.imagen{
-    width: 400px;
-    border-radius: 20px;
-    display:block;
-    margin:auto;
-}
-
-#descripcion{
-    float: right;
+#imagen{
     width: 49%;
+    border-radius: 20px;
+    float:left;
+    margin-right: 10px;
+    display: flex;
+    
+}
+#descripcion{
+    float:left;
+    width: 49%; 
 }
 

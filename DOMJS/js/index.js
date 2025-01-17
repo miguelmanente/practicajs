@@ -28,6 +28,7 @@ const listaCabeceras =document.getElementsByClassName("cabecera");
 let color ="hsl(" + Math.floor(Math.random() * 361) + ",100%," +" 50%)";
 for (let i = 0; i <listaCabeceras.length; i++){
   listaCabeceras[i].style.color = color;
+  listaCabeceras[i].style.textAlign = "center";
 }
 
 
