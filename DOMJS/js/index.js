@@ -24,7 +24,7 @@
 //document.getElementById("cabecera").style.fontSize = tamanioFuente;
 
 //Toma todas las etiquetas que tengan clase cabecera y mediante la variable color van cambiando con random
-const listaCabeceras =document.getElementsByClassName("cabecera");
+const listaCabeceras = document.getElementsByClassName("cabecera");
 let color ="hsl(" + Math.floor(Math.random() * 361) + ",100%," +" 50%)";
 for (let i = 0; i <listaCabeceras.length; i++){
   listaCabeceras[i].style.color = color;
