@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname,'../public')))
 
 //Creación de ruta de pagina 404(error) en caso que no encuentre la pagina en src
 app.use((req,res)=>{
-    //sendFile y __dirname establecen las rutas correctas para el renderizado de las paǵinas y index y demás
+    //sendFile y __dirname establecen las rutas correctas para el renderizado de las paǵinas y index que están en la carpeta public
     res.sendFile(path.join(__dirname,'../public/index.html'));
 })
 
