@@ -1,7 +1,9 @@
 const controller = {}
+const title = 'INDEX DESDE EL SERVIDOR CON PUG Y DESDE UNA VARIABLE'
 
 controller.index =  (req, res)=>{
-    res.send('La conexión ha sido correcta desde index.controller');
+    //renderizado de contenido dinámico en el cliente(navegador)
+    res.render('index',{title})
 }
 
 module.exports = controller
