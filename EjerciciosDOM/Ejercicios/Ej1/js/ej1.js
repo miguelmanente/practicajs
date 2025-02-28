@@ -99,7 +99,7 @@ console.log("la suma total del Array es: "+sumarArray([2, 3, 4, 5, 6, 7]));*/
 //funcion sumar con forEachlet suma=0;
 let suma = 0;
 function sumarArray(numeros){
-    numeros.forEach((a) => suma = suma + a);
+    numeros.forEach((a) => suma += a);
     return suma;
 }
 console.log("la suma total del Array es: "+sumarArray([2, 3, 4, 5, 6, 7]))
