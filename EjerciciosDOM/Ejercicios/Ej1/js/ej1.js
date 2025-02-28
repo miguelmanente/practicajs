@@ -64,10 +64,10 @@ console.log([numero[0],numero[4]]);
 arreglo([2, 3, 4, 5, 6, 7]); */
 
 //Mostrar un arreglo con foreach y funciones
-/* function arreglo(numeros){
+function arreglo(numeros){
     numeros.forEach(function(dato){console.log(dato)}); 
 }
-arreglo([2, 3, 4, 5, 6, 7]); */
+arreglo([2, 3, 4, 5, 6, 7]); 
 
 //Mostrar un arreglo con foreach y funciones flecha
 /* function arreglo(numeros){
@@ -79,19 +79,27 @@ arreglo([2, 3, 4, 5, 6, 7]); */
 
 //funcion sumar todo el array
 
-/* function sumarArray(numeros){
+/*function sumarArray(numeros){
     let suma = numeros.reduce((acumulador,numero) => acumulador + numero);
     return suma;
 }
 console.log("la suma total del Array es: "+sumarArray([2, 3, 4, 5, 6, 7])); */
 
 //funcion sumar con forEach
-/* let suma=0;
+/*let suma=0;
 
 function sumarArray(numeros){
     numeros.forEach(function(a){
-        suma += a;
+        suma = suma + a;
     });
     return suma;
 }
-console.log("la suma total del Array es: "+sumarArray([2, 3, 4, 5, 6, 7])); */
+console.log("la suma total del Array es: "+sumarArray([2, 3, 4, 5, 6, 7]));*/
+
+//funcion sumar con forEachlet suma=0;
+let suma = 0;
+function sumarArray(numeros){
+    numeros.forEach((a) => suma = suma + a);
+    return suma;
+}
+console.log("la suma total del Array es: "+sumarArray([2, 3, 4, 5, 6, 7]))
