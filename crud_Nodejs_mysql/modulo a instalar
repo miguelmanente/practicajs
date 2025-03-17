@@ -1,0 +1,10 @@
+npm init --yes genera package.json del proyecto
+npm express permite ahorar código express mediante nodejs 
+npm mysql para crear conexion entre express y la base de datos mysql
+npm morgan permite ver las peticiones al servisor 
+npm ejs motor de plantilla 
+npm nodemon -D  permite ejecutar cambios en el servidor sin estar reiniciando 
+
+Al instalar nodemon, para ejecutar el archivo en la carpeta src, escribir:
+   npm run dev
+
