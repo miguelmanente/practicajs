@@ -1,10 +1,8 @@
--- Active: 1742066657806@@localhost@3306@bdcliente
+CREATE DATABASE nose;
 
-CREATE DATABASE crudnodejsmysql;
+use nose;
 
-use crudnodejsmysql;
-
-CREATE TABLE customer (
+CREATE TABLE customer(
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     address VARCHAR(100) NOT NULL,
@@ -13,4 +11,4 @@ CREATE TABLE customer (
 
 SHOW TABLES;
 
-DESCRIBE customer;
+describe customer;

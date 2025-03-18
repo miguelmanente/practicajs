@@ -18,9 +18,9 @@ app.use(morgan('dev'));  //peticiones al servidor que se verán en consola
 app.use(myConnection(mysql, {
     host: 'localhost',
     user: 'root',
-    password: '1234',
-    port: 3306,
-    database: 'bdcliente'
+    password: '',
+    port: 3307,
+    database: ''
 },'single'));
 
 
