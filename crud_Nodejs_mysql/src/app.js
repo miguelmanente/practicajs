@@ -5,7 +5,13 @@ const path = require('path');  //une directorios del proyecto
 const morgan = require('morgan'); //Se utiliza para ver en consola las peticiones que llegan al servidor
 const mysql = require('mysql');  //conexion a mysql
 const myConnection = require('express-myconnection');  //Conexion entre express y mysql
+
 const app = express();   //habilitamos el uso de express en la aplicacion
+
+//Importando rutas(routers)
+const customerRoutes = require('./routes/customer');
+
+
 
 //Configuraciones de servidor, puerto, plantilla etc.
 app.set('port', process.env.PORT || 3000);  //la variable port toma el puerto disponible del SO y si no encuentra nada usa 3000
@@ -20,12 +26,15 @@ app.use(myConnection(mysql, {
     user: 'root',
     password: '',
     port: 3307,
-    database: ''
+    database: 'nose'
 },'single'));
-
+app.use(express.urlencoded({extended: false}));
 
 //routes
+app.use('/', customerRoutes);
 
+//static files
+app.use(express.static(path.join(__dirname, 'public')));
 
 //aplicación escucha el puerto 3000
 app.listen(app.get('port'), () =>{
