@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATOS PROFESORES</title>
+
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="/" class="navbar-brand">DATOS PROFESORES</a>
+    </nav>
+
+    <div class="container-">
+        <div class="row mt-3 ml-5 mr-5 ">
+            <div class="col-md-9 text-center">
+                <h2>DATOS DEL DOCENTE</h2> 
+                <table class="table table-bordered table-hover table-responsive">
+                    <thead>
+                        <tr>
+                            <th class="border-primary">Nº</th>
+                            <th class="border-primary">NOMBRE</th>
+                            <th class="border-primary">APELLIDO</th>
+                            <th class="border-primary">DNI</th>
+                            <th class="border-primary">FECNAC</th>
+                            <th class="border-primary">EMAIL</th>
+                            <th class="border-primary">CELULAR</th>
+                            <th class="border-primary">DIRECCION</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (data) { %>
+                            <% for (var i=0; i < data.length; i++) { %>
+                                <tr>
+                                    <td class="border-primary">
+                                        <%= (i + 1) %>
+                                    </td>
+                                    <td class="border-primary">
+                                        <%= data[i].nombre %>
+                                    </td>
+                                    <td class="border-primary">
+                                        <%= data[i].apellido %>
+                                    </td>
+                                    <td class="border-primary">
+                                        <%= data[i].dni %>
+                                    </td>
+                                    <td class="border-primary">
+                                        <%= data[i].f_nacimiento %>
+                                    </td>
+                                    <td class="border-primary">
+                                        <%= data[i].email %>
+                                    </td>
+                                    <td class="border-primary">
+                                        <%= data[i].celular %>
+                                    </td>
+                                    <td class="border-primary">
+                                        <%= data[i].direccion %>
+                                    </td>
+                                    <td class="border-primary">
+                                        <!-- <a href="/delete/<%= data[i].id %>" class="btn btn-danger">Delete</a>
+                                        <a href="/update/<%= data[i].id %>" class="btn btn-info">Update</a> -->
+                                    </td>
+                                </tr>
+                            <% } %>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3 bd-2">
+                <h4>INGRESE DATOS DEL DOCENTE</h4>
+                <div class="card border-primary">
+                    <div class="card-body">
+                        <form action="/add" method="post">
+                            <div class="form-group">
+                                <input type="text" name="nombre" placeholder="NOMBRE" class="form-control border-primary">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="apellido" placeholder="APELLIDO" class="form-control border-primary">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="dni" placeholder="DNI" class="form-control border-primary">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="f_nacimiento" placeholder="FECNAC" class="form-control border-primary">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="email" placeholder="EMAIL" class="form-control border-primary">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="celular" placeholder="CELULAR" class="form-control border-primary">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="direccion" placeholder="DIRECCION" class="form-control border-primary">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">
+                                GUARDAR DOCENTE
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
