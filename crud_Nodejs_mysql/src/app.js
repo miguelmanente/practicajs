@@ -1,6 +1,7 @@
 //Creación del servidor express
 
 const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');  //une directorios del proyecto
 const morgan = require('morgan'); //Se utiliza para ver en consola las peticiones que llegan al servidor
 const mysql = require('mysql');  //conexion a mysql
@@ -24,11 +25,12 @@ app.use(morgan('dev'));  //peticiones al servidor que se verán en consola
 app.use(myConnection(mysql, {
     host: 'localhost',
     user: 'root',
-    password: '',
-    port: 3307,
+    password: '1234',
+    port: 3306,
     database: 'nose'
 },'single'));
-app.use(express.static.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(express.static.urlencoded({extended: false}));
 
 //routes
 app.use('/', customerRoutes);
