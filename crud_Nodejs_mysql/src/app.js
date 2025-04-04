@@ -28,7 +28,7 @@ app.use(myConnection(mysql, {
     port: 3307,
     database: 'nose'
 },'single'));
-app.use(express.urlencoded({extended: false}));
+app.use(express.static.urlencoded({extended: false}));
 
 //routes
 app.use('/', customerRoutes);
