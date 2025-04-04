@@ -22,4 +22,15 @@ controller.guardar =  (req, res) => {
     })
 };
 
+
+controller.borrar = (req, res) => {
+    const { id } = req.params;
+
+    req.getConnection((err, conn) => {
+        conn.query('DELETE FROM profesor WHERE id = ?', [id], (err, profes) => {
+            res.redirect('/');
+        });  
+    });
+};
+
 module.exports = controller;
