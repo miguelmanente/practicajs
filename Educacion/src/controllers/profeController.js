@@ -24,10 +24,10 @@ controller.guardar =  (req, res) => {
 
 
 controller.borrar = (req, res) => {
-    const { id } = req.params;
+    const { idprofesor } = req.params;
 
     req.getConnection((err, conn) => {
-        conn.query('DELETE FROM profesor WHERE id = ?', [id], (err, profes) => {
+        conn.query('DELETE FROM profesor WHERE idprofesor = ?', [idprofesor], (err, rows) => {
             res.redirect('/');
         });  
     });
