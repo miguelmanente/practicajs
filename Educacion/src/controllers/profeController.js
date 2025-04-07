@@ -22,12 +22,32 @@ controller.guardar =  (req, res) => {
     })
 };
 
+controller.edicion  = (req, res) => {
+    const { idprofesor } = req.params;
+    req.getConnection((err, conn) => {
+        conn.query('SELECT * FROM profesor WHERE idprofesor = ?', [idprofesor], (err, profes) => {
+            res.render('edicionProfe', {
+                data: profes[0]
+            });
+        });
+    });
+};
+
+controller.actualizar = (req, res) => {
+    const { idprofesor } = req.params;
+    const profeActualizado = req.body;
+    req.getConnection((err, conn) => {
+        conn.query('UPDATE profesor set ? WHERE idprofesor = ?', [profeActualizado, idprofesor], (err, profes) => {
+            res.redirect('/');
+        });
+    });
+};
 
 controller.borrar = (req, res) => {
     const { idprofesor } = req.params;
 
     req.getConnection((err, conn) => {
-        conn.query('DELETE FROM profesor WHERE idprofesor = ?', [idprofesor], (err, rows) => {
+        conn.query('DELETE FROM profesor WHERE id = ?', [idprofesor], (err, rows) => {
             res.redirect('/');
         });  
     });
