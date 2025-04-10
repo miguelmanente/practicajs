@@ -10,6 +10,7 @@ const app = express();
 //Importando rutas
 const profeRoutes = require('./routes/profe');
 
+
 //Configuracion del servidor
 app.set('port', process.env.PORT || 3000);
 app.set('view engine', 'ejs');

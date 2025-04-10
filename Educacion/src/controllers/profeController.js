@@ -53,4 +53,15 @@ controller.borrar = (req, res) => {
     });
 };
 
+controller.editar = (req, res) => {
+    const { idprofesor } = req.params;
+    req.getConnection((err, conn) => {
+        conn.query('SELECT * FROM profesor WHERE idprofesor = ?', [idprofesor], (err, profes) => {
+            res.render('editarProfe', {
+                data: profes[0]
+            });
+        });
+    });
+};
+
 module.exports = controller;
