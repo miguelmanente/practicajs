@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 const path = require('path');
 const mysql = require('mysql');
 const morgan = require('morgan');
@@ -9,7 +9,6 @@ const app = express();
 
 //Importando rutas
 const profeRoutes = require('./routes/profe');
-
 
 //Configuracion del servidor
 app.set('port', process.env.PORT || 3000);
@@ -25,11 +24,13 @@ app.use(myConnection(mysql, {
     port: 3306,
     database: 'profesores'
 },'single'));
-app.use(bodyParser.urlencoded({ extended: true }));
-//app.use(express.static.urlencoded({extended: false}));
+//app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: false}));
 
 //routes
 app.use('/', profeRoutes);
+
+
 
 //archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));

@@ -5,34 +5,41 @@
         <%- include('../views/partials/header'); %>
     </header>
 
-    <div class="container mt-5">
+    <div class="container-fluid mt-5">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="/actualizar/<%= data.idprofesor %>" method="post">
-                            <div class="form-group">
+                        <form class="form-inline " action="/actualizar/<%= data.idprofesor %>" method="post">
+                            <div class="form-group mr-3 mb-3">
+                                <label class="mr-2" for="nombre">NOMBRE</label>
                                 <input type="text" name="nombre" value="<%= data.nombre %>" class="form-control">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mr-3 mb-3">
+                                <label class="mr-2" for="apellido">APELLIDO</label>
                                 <input type="text" name="apellido" value="<%= data.apellido %>" class="form-control">
                             </div>
-                            <div class="form-group">
-                                <input type="text" name="dni" value="<%= data.dni %>" class="form-control">
+                            <div class="form-group mr-5 mb-3">
+                                <label class="mr-2" for="dni">DNI</label>
+                                <input type="text" name="dni" value="<%= data.dni %>" class="form-control w-40">
                             </div>
-                            <div class="form-group">
-                                <input type="text" name="f_nacimiento" value="<%= data.f_nacimiento %>" class="form-control">
+
+
+                            <div class="form-group mr-5 mb-3">
+                                <label class="mr-2" for="f_nacimiento">FEC.NACIMIENTO</label>
+                                <input type="text" name="f_nacimiento" value="<%= data.f_nacimiento %>" class="form-control pr-1 w-5">
                             </div>
-                            <div class="form-group">
-                                <input type="text" name="email" value="<%= data.email %>" class="form-control">
+                            <div class="form-group mr-5 mb-3">
+                                <label class="mr-1" for="email">EMAIL</label>
+                                <input type="text" name="email" value="<%= data.email %>" class="form-control ml-1 mr-5 w-100">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mr-3 mb-3">
                                 <input type="text" name="celular" value="<%= data.celular%>" class="form-control">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mr-3 mb3">
                                 <input type="text" name="direccion" value="<%= data.direccion %>" class="form-control">
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block">
+                            <button type="submit" class="btn btn-primary  mb-3 ">
                                 EDITAR DOCENTE
                             </button>
                         </form>
