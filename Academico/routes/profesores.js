@@ -7,11 +7,12 @@ const db = require('../db');
 router.get('/', (req, res) => {
     db.query('SELECT * FROM profesores', (err, results) =>{
         if (err) throw err;
-        res.json(results);
+        res.render('mostrarProfe', {
+            profesores: results});
     });
 });
 
-router.get('/:id', (req, res) => {
+/*router.get('/:id', (req, res) => {
     const {id} = req.params;
     db.query('SELECT * FROM profesores WHERE id_profesor = ?', [id], (err, results) =>{
         if (err) throw err;
@@ -26,6 +27,6 @@ router.post('/', (req, res) => {
         if (err) throw err;
         res.json({mensaje: 'Profesor agregado', id:results.insertId});
     });
-});
+}); */
 
 module.exports = router;
