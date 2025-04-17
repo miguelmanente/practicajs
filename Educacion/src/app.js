@@ -30,8 +30,6 @@ app.use(express.urlencoded({extended: false}));
 //routes
 app.use('/', profeRoutes);
 
-
-
 //archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
