@@ -47,7 +47,7 @@ controller.borrar = (req, res) => {
     const { idprofesor } = req.params;
 
     req.getConnection((err, conn) => {
-        conn.query('DELETE FROM profesor WHERE id = ?', [idprofesor], (err, rows) => {
+        conn.query('DELETE FROM profesor WHERE idprofesor = ?', [idprofesor], (err, rows) => {
             res.redirect('/');
         });  
     });
