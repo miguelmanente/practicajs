@@ -8,7 +8,7 @@ controller.list =(req, res) => {
             }
             res.render('customers', {
                 data:   customers});
-        });borrar
+        });
     });
 };
 
