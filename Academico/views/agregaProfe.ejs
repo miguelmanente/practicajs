@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+    <header>
+        <%- include('../views/partials/header'); %>
+    </header>
+    <h2 class="text-info text-center mt-5">AGREGAR DOCENTES</h2>
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="col-md-4 bd-2 mt-5">
+            <div class="card border-primary">
+                <div class="card-body">
+                    
+                    <form action="/agregarProfe/<%= profesores.id_profesor %>" method="post">
+                        <div class="form-group ">
+                            <input type="text" name="nombre" placeholder="NOMBRE" class="form-control border-primary">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="email" placeholder="EMAIL" class="form-control border-primary">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="dni" placeholder="DNI" class="form-control border-primary">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="f_nacimiento" placeholder="FECNAC" class="form-control border-primary">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="edad" placeholder="EDAD" class="form-control border-primary">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="celular" placeholder="CELULAR" class="form-control border-primary">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="direccion" placeholder="DIRECCION" class="form-control border-primary">
+                        </div>
+                        <button type="submit" class="btn btn-info form-control">
+                            GUARDAR DOCENTE
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+     
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
+</html>

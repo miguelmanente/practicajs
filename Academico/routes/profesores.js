@@ -12,21 +12,4 @@ router.get('/', (req, res) => {
     });
 });
 
-/*router.get('/:id', (req, res) => {
-    const {id} = req.params;
-    db.query('SELECT * FROM profesores WHERE id_profesor = ?', [id], (err, results) =>{
-        if (err) throw err;
-        res.json(results[0]);
-    });
-});
-
-//POST nuevo profesor
-router.post('/', (req, res) => {
-    const { nombre, email} = req.body;
-    db.query('INSERT INTO profesores (nombre, email) VALUES (?, ?)', [nombre, email], (err, results) => {
-        if (err) throw err;
-        res.json({mensaje: 'Profesor agregado', id:results.insertId});
-    });
-}); */
-
 module.exports = router;

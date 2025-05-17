@@ -13,6 +13,12 @@ app.use(express.urlencoded({extended: false}));
 const loginRoutes = require('./routes/login');
 const inicioRoutes = require('./routes/inicio');
 const profeRoutes = require('./routes/profesores');
+const addRoutes = require('./routes/agregarProfe');
+const editRoutes = require('./routes/editar');
+const busRoutes = require('./routes/buscar');
+
+
+
 
 
 //Rutas
@@ -26,6 +32,13 @@ const materiaCursoRoutes = require('./routes/materiaCurso'); */
 app.use('/login', loginRoutes);
 app.use('/inicio', inicioRoutes);
 app.use('/profesores', profeRoutes);
+app.use('/agregarProfe', addRoutes);
+app.use('/buscar', busRoutes);
+app.use('/editar', editRoutes);
+
+
+
+
 /* app.use('/materias', materiasRoutes);
 app.use('/cursos', cursosRoutes);
 app.use('/profesor-materia', profesorMateriaRoutes);

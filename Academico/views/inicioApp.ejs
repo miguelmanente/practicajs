@@ -1,7 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+<body>
+   <header>
+      <%- include('../views/partials/header'); %>
+   </header>
 
-  <header>
-     <%- include('../views/partials/header'); %>
-  </header>
+   <button class="btnuno" id="btnuno">
+      <img src="./assets/lupa.svg" width="100px" height="100px">
+      <a href="#" >Buscar por Apellidos</a>
+  </button>
+  
+  <button class="btnuno">
+      <img src="./assets/impresora.png" width="100px" height="100px">
+      <a href="#"></a>
+      <span>Listar Profesor por materias y cursos</span>
+  </button>
 
+  <button class="btnuno">
+      <img src="./assets/impresora.png" width="100px" height="100px">
+      <a href="profesores">Listar Docentes</a>
+  </button>
+  
+  <script src="/Academico/routes/listarProfe.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+</body>
+</html>
