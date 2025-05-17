@@ -8,5 +8,8 @@ router.post('/add', profeController.guardar);
 router.get('/borrar/:idprofesor', profeController.borrar);
 router.get('/actualizar/:idprofesor', profeController.edicion);
 router.post('/actualizar/:idprofesor', profeController.actualizar);
+router.get('/busca', profeController.busca);
+router.post('/busca1', profeController.busca1);
+
 
 module.exports = router;    

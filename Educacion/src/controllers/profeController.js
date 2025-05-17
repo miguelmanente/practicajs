@@ -53,5 +53,21 @@ controller.borrar = (req, res) => {
     });
 };
 
+// Ruta para buscar profeosres por apellido.
+
+controller.busca = (req, res) => {
+  res.render('busqueda');
+};
+
+controller.busca1 = (req, res) => {
+  const termino = req.body.apellido;
+  const query = "SELECT * FROM profesor WHERE apellido LIKE ?";
+  req.getConnection((err, conn) =>{
+    conn.query(query, [`%${termino}%`], (err, resultados) => {
+        if (err) throw err;
+        res.render('resultados', { profesor: resultados });
+    });
+});
+};
 
 module.exports = controller;
