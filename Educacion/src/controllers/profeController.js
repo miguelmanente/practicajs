@@ -1,5 +1,6 @@
 const controller = {};
 
+
 controller.list = (req, res) => {
     req.getConnection((err, conn) => {
         conn.query('SELECT * FROM profesor', (err, profes) =>{
@@ -17,7 +18,7 @@ controller.guardar =  (req, res) => {
 
     req.getConnection((err, conn) => {
         conn.query('INSERT INTO profesor set ?', [data], (err, profes) => {
-            res.redirect('/');
+            res.redirect('/list');
         })
     })
 };
@@ -38,7 +39,7 @@ controller.actualizar = (req, res) => {
     const profeActualizado = req.body;
     req.getConnection((err, conn) => {
         conn.query('UPDATE profesor set ? WHERE idprofesor = ?', [profeActualizado, idprofesor], (err, profes) => {
-            res.redirect('/');
+            res.redirect('/list');
         });
     });
 };
@@ -48,7 +49,7 @@ controller.borrar = (req, res) => {
 
     req.getConnection((err, conn) => {
         conn.query('DELETE FROM profesor WHERE idprofesor = ?', [idprofesor], (err, rows) => {
-            res.redirect('/');
+            res.redirect('/list');
         });  
     });
 };
@@ -68,6 +69,10 @@ controller.busca1 = (req, res) => {
         res.render('resultados', { profesor: resultados });
     });
 });
+};
+
+controller.inicio = (req, res) => {
+    res.render('inicioApp');
 };
 
 module.exports = controller;
