@@ -20,9 +20,9 @@ app.use(morgan('dev'));
 app.use(myConnection(mysql, {
     host: 'localhost',
     user: 'root',
-    password: '1234',
+    password: 'Mibero606487',
     port: 3306,
-    database: 'profesores'
+    database: 'educacion'
 },'single'));
 //app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({extended: false}));
