@@ -14,25 +14,23 @@
                         <thead>
                             <tr>
                               <th class="border-primary">Nº</th>
-                              <th class="border-primary">NOMBRES</th>
-                              <th class="border-primary">APELLIDOS</th>
+                              <th class="border-primary">APELLIDO NOMBRE</th>
                               <th class="border-primary">DNI</th>
                               <th class="border-primary">FECNAC</th>
                               <th class="border-primary">EMAIL</th>
-                              <th class="border-primary">CELULAR</th>
+                              <th class="border-primary">TELEFONO</th>
                               <th class="border-primary">DIRECCION</th>
                             </tr>
                         </thead>
                         <tbody>
                             <% profesor.forEach(profesor => { %>
                                 <tr>
-                                  <td class="border-primary"><%= profesor.idprofesor %></td>
-                                  <td class="border-primary"><%= profesor.nombre %></td>
-                                  <td class="border-primary"><%= profesor.apellido %></td>
+                                  <td class="border-primary"><%= profesor.id_profesor %></td>
+                                  <td class="border-primary"><%= profesor.apellido_nombre %></td>
                                   <td class="border-primary"><%= profesor.dni %></td>
-                                  <td class="border-primary"><%= profesor.f_nacimiento %></td>
+                                  <td class="border-primary"><%= profesor.fecnac %></td>
                                   <td class="border-primary"><%= profesor.email %></td>
-                                  <td class="border-primary"><%= profesor.celular %></td>
+                                  <td class="border-primary"><%= profesor.telefono %></td>
                                   <td class="border-primary"><%= profesor.direccion %></td>
                                 </tr>
                               

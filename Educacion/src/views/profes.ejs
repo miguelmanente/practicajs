@@ -15,12 +15,11 @@
                         <thead>
                             <tr>
                                 <th class="border-primary">Nº</th>
-                                <th class="border-primary">NOMBRE</th>
-                                <th class="border-primary">APELLIDO</th>
+                                <th class="border-primary">APELLIDO NOMBRE</th>
                                 <th class="border-primary">DNI</th>
                                 <th class="border-primary">FECNAC</th>
                                 <th class="border-primary">EMAIL</th>
-                                <th class="border-primary">CELULAR</th>
+                                <th class="border-primary">TELEFONO</th>
                                 <th class="border-primary">DIRECCION</th>
                                 <th class="border-primary">ACCIÓN</th>
                             </tr>
@@ -33,29 +32,26 @@
                                             <%= (i + 1) %>
                                         </td>
                                         <td class="border-primary">
-                                            <%= data[i].nombre %>
-                                        </td>
-                                        <td class="border-primary">
-                                            <%= data[i].apellido %>
+                                            <%= data[i].apellido_nombre %>
                                         </td>
                                         <td class="border-primary">
                                             <%= data[i].dni %>
                                         </td>
                                         <td class="border-primary">
-                                            <%= data[i].f_nacimiento %>
+                                            <%= data[i].fecnac %>
                                         </td>
                                         <td class="border-primary">
                                             <%= data[i].email %>
                                         </td>
                                         <td class="border-primary">
-                                            <%= data[i].celular %>
+                                            <%= data[i].telefono %>
                                         </td>
                                         <td class="border-primary">
                                             <%= data[i].direccion %>
                                         </td>
                                         <td class="border-primary">
-                                            <a href="/borrar/<%= data[i].idprofesor %>" class="btn btn-danger btn-sm rounded-pill">BORRAR</a>
-                                            <a href="/actualizar/<%= data[i].idprofesor %>" class="btn btn-info btn-sm rounded-pill mt-1">ACTUALIZAR</a>
+                                            <a href="/borrar/<%= data[i].id_profesor %>" class="btn btn-danger btn-sm rounded-pill">BORRAR</a>
+                                            <a href="/actualizar/<%= data[i].id_profesor %>" class="btn btn-info btn-sm rounded-pill mt-1">ACTUALIZAR</a>
                                             
                                         </td>
                                     </tr>
@@ -70,22 +66,19 @@
                         <div class="card-body">
                             <form action="/add" method="post">
                                 <div class="form-group">
-                                    <input type="text" name="nombre" placeholder="NOMBRE" class="form-control border-primary">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" name="apellido" placeholder="APELLIDO" class="form-control border-primary">
+                                    <input type="text" name="apellido_nombre" placeholder="APELLIDO NOMBRE" class="form-control border-primary">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="dni" placeholder="DNI" class="form-control border-primary">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="f_nacimiento" placeholder="FECNAC" class="form-control border-primary">
+                                    <input type="text" name="fecnac" placeholder="FECNAC" class="form-control border-primary">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="email" placeholder="EMAIL" class="form-control border-primary">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="celular" placeholder="CELULAR" class="form-control border-primary">
+                                    <input type="text" name="telefono" placeholder="TELEFONO" class="form-control border-primary">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="direccion" placeholder="DIRECCION" class="form-control border-primary">

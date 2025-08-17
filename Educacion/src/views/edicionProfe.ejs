@@ -12,14 +12,10 @@
             <div class="card">
                 <div class="card-body ">
                     
-                    <form class="form "  action="/actualizar/<%= data.idprofesor %>" method="post">
-                        <div class="form-group">
-                        
-                            <input type="text" name="nombre" value="<%= data.nombre %>" class="form-control border-primary fs-5">
-                        </div>
+                    <form class="form "  action="/actualizar/<%= data.id_profesor %>" method="post">
                         <div class="form-group">
                             
-                            <input type="text" name="apellido" value="<%= data.apellido %>" class="form-control border-primary fs-5">
+                            <input type="text" name="apellido_nombre" value="<%= data.apellido_nombre %>" class="form-control border-primary fs-5">
                         </div>
                         <div class="form-group">
                             
@@ -27,7 +23,7 @@
                         </div>
                         <div class="form-group ">
                             
-                            <input type="text" name="f_nacimiento" value="<%= data.f_nacimiento %>" class="form-control border-primary fs-5">
+                            <input type="text" name="fecnac" value="<%= data.fecnac %>" class="form-control border-primary fs-5">
                         </div>
                         <div class="form-group">
                             
@@ -35,7 +31,7 @@
                         </div>
                         <div class="form-group">
                             
-                            <input type="text" name="celular" value="<%= data.celular%>" class="form-control border-primary fs-5">
+                            <input type="text" name="telefono" value="<%= data.telefono%>" class="form-control border-primary fs-5">
                         </div>
                         <div class="form-group ">
                             

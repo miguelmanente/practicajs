@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <header>
+        <%- include('../views/partials/header1'); %>
+    </header>
+    <h1>Lista de Profesores y Materias</h1>
+    <ul>
+        <% profesor.forEach(prof => { %>
+        <li>
+            <strong><%= prof.apellido_nombre %></strong>
+            <ul>
+            <% if (prof.nombre_materia.length > 0) { %>
+                <% prof.nombre_materia.forEach(mat => { %>
+                <li><%= nombre_materia%></li>
+                <% }) %>
+            <% } else { %>
+                <li><em>Sin materias asignadas</em></li>
+            <% } %>
+            </ul>
+        </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
