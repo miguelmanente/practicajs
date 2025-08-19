@@ -11,6 +11,6 @@ router.post('/actualizar/:id_profesor', profeController.actualizar);
 router.get('/busca', profeController.busca);
 router.post('/busca1', profeController.busca1);
 router.get('/inicio', profeController.inicio);
-router.get('profmat', profeController.profmat);
+router.get('/profmat', profeController.profmat);
 
 module.exports = router;    

@@ -78,43 +78,39 @@ controller.inicio = (req, res) => {
 //Modulo para profesor materias
 
 controller.profmat = (req, res) => {
-  const { id_profesor } = req.params;
-  const sql = `
-    SELECT id_profesor, apellido_nombre,
-           id_materia, nombre_materia
-    FROM profesor 
-    LEFT JOIN materia ON id_profesor
-    ORDER BY id_profesor;
-  `;
+ 
+    const sql = `SELECT profesor.id_profesor, profesor.apellido_nombre,
+                CONCAT(profesor.apellido_nombre) AS profesor,  
+                materia.nombre_materia
+                FROM profesor
+                INNER JOIN profesor_materia ON profesor.id_profesor = profesor_materia.id_profesor
+                INNER JOIN materia ON profesor_materia.id_materia = materia.id_materia
+                ORDER BY profesor.apellido_nombre;
+    `;
+    req.getConnection((err, conn) => {
+    
+        conn.query(sql, (err, results) => {
+        
+        const profesores = {};
 
-  req.getConnection(sql, [id_profesor], (err, conn) => {
-    conn.query(sql, (err, results) => {
-      if (err) throw err;
-        res.render('profMateria', { profesor: results});
+        results.forEach(row => {
+        if (!profesores[row.id_profesor]) {
+                profesores[row.id_profesor] = {
+                id: row.id_profesor,
+                nombre: row.apellido_nombre,
+                materias: []
+            };
+        }
+        profesores[row.id_profesor].materias.push(row.nombre_materia);
+        });
+
+        res.render("profesores", { profesores: Object.values(profesores) });
     });
-  });
+    });
 };
 
+
+//Exportamos el controlador
 module.exports = controller;
 
 
-// Agrupar resultados por profesor
-    /* const profesores = [];
-    const map = {};
-
-    results.forEach(row => {
-      if (!map[row.id_profesor]) {
-        map[row.id_profesor] = {
-          id: row.id_profesor,
-          nombre: row.apellido_nombre,
-          materias: []
-        };
-        profesores.push(map[row.id_profesor]);
-      }
-      if (row.id_materia) {
-        map[row.id_profesor].materias.push({
-          id: row.id_materia,
-          nombre: row.materia_nombre
-        });
-      }
-    }); */

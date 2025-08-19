@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profesores y materias</title>
+</head>
+<body>
+
+     <header>
+        <%- include('../views/partials/header1'); %>
+    </header>
+  <h1>Profesores y las materias que dictan</h1>
+
+  <ul>
+    <% profesores.forEach(p => { %>
+      <li>
+        <strong><%= p.id%></strong></li>
+        <strong><%= p.nombre%></strong></li>
+        <ul>
+          <% p.materias.forEach(m => { %>
+            <li><%= m %></li>
+          <% }) %>
+        </ul>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
