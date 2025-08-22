@@ -78,34 +78,43 @@ controller.inicio = (req, res) => {
 //Modulo para profesor materias
 
 controller.profmat = (req, res) => {
- 
-    const sql = `SELECT profesor.id_profesor, profesor.apellido_nombre,
-                CONCAT(profesor.apellido_nombre) AS profesor,  
-                materia.nombre_materia
-                FROM profesor
-                INNER JOIN profesor_materia ON profesor.id_profesor = profesor_materia.id_profesor
-                INNER JOIN materia ON profesor_materia.id_materia = materia.id_materia
-                ORDER BY profesor.apellido_nombre;
+
+    const sql = `SELECT
+            p.id_profesor,
+            p.apellido_nombre,
+            GROUP_CONCAT(DISTINCT m.nombre_materia ORDER BY m.nombre_materia SEPARATOR ' ') AS materias,
+            GROUP_CONCAT(DISTINCT c.nombre_curso ORDER BY c.nombre_curso SEPARATOR '||') AS cursos,
+            GROUP_CONCAT(DISTINCT h.dia_semana,': ' SEPARATOR '||') AS dias,
+            GROUP_CONCAT(DISTINCT h.hora_inicio,'   ' SEPARATOR '||') AS horas_inicio,
+            GROUP_CONCAT(DISTINCT h.hora_fin,' --- ' SEPARATOR '||') AS horas_fin
+            FROM profesor p
+            LEFT JOIN profesor_materia pm ON pm.id_profesor = p.id_profesor
+            LEFT JOIN materia m           ON m.id_materia   = pm.id_materia
+            LEFT JOIN curso c             ON c.id_profesor  = p.id_profesor
+            LEFT JOIN horario h           ON h.id_curso     = c.id_curso
+            GROUP BY p.id_profesor, p.apellido_nombre
+            ORDER BY p.apellido_nombre;
     `;
+    /* const sql = `SELECT p.id_profesor, p.apellido_nombre, (SELECT GROUP_CONCAT(DISTINCT m.nombre_materia SEPARATOR ', ') FROM profesor_materia pm JOIN materia m ON pm.id_materia = m.id_materia WHERE pm.id_profesor = p.id_profesor), (SELECT GROUP_CONCAT(DISTINCT c.nombre_curso SEPARATOR ', ') FROM curso c WHERE c.id_profesor = p.id_profesor), (SELECT GROUP_CONCAT(DISTINCT CONCAT(h.dia_semana, ' ', h.hora_inicio, '-', h.hora_fin) SEPARATOR ', ') FROM curso c JOIN horario h ON c.id_curso = h.id_curso WHERE c.id_profesor = p.id_profesor) FROM profesor p ORDER BY  p.apellido_nombre;*/
+    
     req.getConnection((err, conn) => {
     
         conn.query(sql, (err, results) => {
         
-        const profesores = {};
-
-        results.forEach(row => {
-        if (!profesores[row.id_profesor]) {
-                profesores[row.id_profesor] = {
-                id: row.id_profesor,
-                nombre: row.apellido_nombre,
-                materias: []
-            };
-        }
-        profesores[row.id_profesor].materias.push(row.nombre_materia);
+            const profesores = {};
+            let r = { materias: null };
+    
+            results.forEach(r => {
+                r.materias = r.materias ? r.materias.split(" "):[];
+                r.cursos   = r.cursos   ? r.cursos.split("||")   : [];
+                r.dias     = r.dias ? r.dias.split("||") : [];
+                r.horas_inicio = r.horas_inicio ? r.horas_inicio.split("||") : [];
+                r.horas_fin    = r.horas_fin ? r.horas_fin.split("||") : [];
+          });
+        
+        // Convertir el objeto a un array para renderizarlo 
+            res.render("profesores", { profesores: results});
         });
-
-        res.render("profesores", { profesores: Object.values(profesores) });
-    });
     });
 };
 
